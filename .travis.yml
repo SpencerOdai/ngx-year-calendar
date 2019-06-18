@@ -28,7 +28,7 @@ jobs:
         - npm run report-coverage:ngx-year-calendar
     - stage: build & publish showcase
       script:
-        - npm run build:demo
+        - npm run build:showcase
       deploy:
         provider: pages
         skip_cleanup: true
