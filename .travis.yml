@@ -24,8 +24,8 @@ jobs:
         - ng lint
     - stage: test
       script:
-        - npm run test:lib-coverage
-        - npm run report-coverage:lib
+        - npm run test:ngx-year-calendar-coverage
+        - npm run report-coverage:ngx-year-calendar
     - stage: build & publish showcase
       script:
         - npm run build:demo
@@ -35,8 +35,8 @@ jobs:
         github_token: $GH_TOKEN
         local_dir: dist/ngx-year-calendar-showcase
       if: branch = master
-    - stage: build & publish lib
+    - stage: build & publish ngx-year-calendar
       script:
-        - npm run build:lib
-        - npm run publish:lib
+        - npm run build:ngx-year-calendar
+        - npm run publish:ngx-year-calendar
       if: branch = master

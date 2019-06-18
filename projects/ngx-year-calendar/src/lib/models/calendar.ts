@@ -30,34 +30,29 @@ export class ICalendar {
         dayInMonth: i,
         dayInWeek,
         date,
-        status:
-          disabledDates && this.disabledStatus(date)
-            ? DayStatus.Disabled
-            : DayStatus.Open,
+        status: disabledDates && this.disabledStatus(date) ? DayStatus.Disabled : DayStatus.Open,
         events: calEvents.length > 0 ? calEvents : null
       });
     }
   }
 
   get currentDay() {
-    return this._days.find((d) => d.dayInMonth === new Date().getDate());
+    return this._days.find((d) => this.startOfDay(d.date).getTime() === this.startOfDay(new Date()).getTime());
   }
 
   get days() {
     return [...this._days];
   }
 
-  disabledStatus(currentDate: Date): boolean {
-    return !!this.disabledDates.find(
-      (date) => this.startOfDay(date).getTime() === currentDate.getTime()
-    );
+  public disabledStatus(currentDate: Date): boolean {
+    return !!this.disabledDates.find((date) => this.startOfDay(date).getTime() === currentDate.getTime());
   }
 
-  startOfDay(date): Date {
+  public startOfDay(date): Date {
     return new Date(date.setHours(0, 0, 0, 0));
   }
 
-  endOfDay(date): Date {
+  public endOfDay(date): Date {
     return new Date(date.setHours(23, 59, 59, 999));
   }
 }

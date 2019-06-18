@@ -1,77 +1,59 @@
 @import '../../style/style.scss';
 
-.text-center {
-  text-align: center;
-}
+:host {
 
-.week-day-label {
-  color: map-get($colors, secondary);
-  font-weight: 500;
-  margin: 10px 0;
-  font-size: 13px;
-}
+  .grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 
-.grid {
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
+    &__weekday-label {
+      color: map-get($colors, secondary);
+      font-weight: 500;
+      margin: 10px 0;
+      font-size: 13px;
+      text-align: center;
+    }
 
-.day {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-color: map-get($colors, primary);
-  color: map-get($colors, dark);
-  font-size: 13px;
-  border-radius: 4px;
-  cursor: pointer;
+    &__day {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-color: map-get($colors, primary);
+      color: map-get($colors, dark);
+      font-size: 13px;
+      border-radius: 4px;
+      cursor: pointer;
 
-  &:hover {
-    background: map-get($colors, stable);
-  }
+      &:hover {
+        background: map-get($colors, stable);
+      }
 
-  span {
-    width: 25px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-width: 1px;
-    border-radius: 50%;
-  }
+      &.selected {
+        background: map-get($colors, stable);
+      }
 
-  .events {
-    display: flex;
+      &.disabled {
+        color: map-get($colors, medium);
+        cursor: not-allowed;
+      }
 
-    .event {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      margin: 0 2px;
+      span {
+        width: 25px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 1px;
+        border-radius: 50%;
+      }
+
+
     }
   }
-}
 
-.completed {
-  background: map-get($colors, success);
-  color: white;
-}
 
-.disabled {
-  color: map-get($colors, medium);
-  cursor: not-allowed;
-}
 
-.failed {
-  background: map-get($colors, danger);
-  color: white;
-}
 
-.not-settable {
-  // span {
-  //   color: var(--ion-color-medium);
-  //   cursor: not-allowed;
-  // }
 }

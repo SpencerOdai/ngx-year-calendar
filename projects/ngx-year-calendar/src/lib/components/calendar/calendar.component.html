@@ -1,21 +1,21 @@
 <div class="grid" *ngIf="currentCalendar">
-  <span class="text-center week-day-label" *ngFor="let weekDay of weekDays; let i = index">
-    {{ weekDay | slice: 0: 2 }}
+  <span class="grid__weekday-label" *ngFor="let weekDay of weekDays; let i = index">
+    {{ weekDay | slice: 0: calendarConfig.weekdayCharLength }}
   </span>
-  <div *ngFor="let day of currentCalendar.days; let i = index" class="day" [ngClass]="{
-        'not-settable': getIsSettable(day.dayInMonth),
+  <div *ngFor="let day of currentCalendar.days; let i = index" class="grid__day" [ngClass]="{
+        selected: day === selectedDay,
         completed: day.status === 1,
         disabled: day.status === 2,
         failed: day.status === 3
       }" [ngStyle]="{ 'grid-row': getRow(i, day), 'grid-column': day.dayInWeek + 1 }"
-    (click)="calendarConfig.clickDay(day)" (mouseover)="calendarConfig.mouseOver(day)"
+    (click)="calendarConfig.clickDay(day) || onChangeStatus(day)" (mouseover)="calendarConfig.mouseOver(day)"
     (mouseenter)="calendarConfig.mouseEnter(day)" (mouseleave)="calendarConfig.mouseLeave(day)"
     (contextmenu)="calendarConfig.rightClickDay(day)">
     <span>{{ day.dayInMonth }}</span>
-    <div class="events" *ngIf="day.events && day.events.length > 0">
+    <!-- <div class="events" *ngIf="day.events && day.events.length > 0">
       <span class="event" [ngStyle]="{'backgroundColor': item.color}"
         *ngFor="let item of day.events | slice: 0: 3"></span>
       <span *ngIf="day.events.length > 3"> + </span>
-    </div>
+    </div> -->
   </div>
 </div>

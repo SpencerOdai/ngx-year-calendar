@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IConfig } from '../../models/config';
+import { ICalendarConfig } from '../../models';
+import { YearCalendarService } from '../../services/year-calendar.service';
 import { CalendarComponent } from '../calendar/calendar.component';
 
 @Component({
@@ -9,21 +10,9 @@ import { CalendarComponent } from '../calendar/calendar.component';
 })
 export class YearCalendarComponent implements OnInit {
   @ViewChild('calendar') public calendar: CalendarComponent;
-  public months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
+  public months = [];
   public selectedYear: number = new Date().getFullYear();
+  public calendarConfig: ICalendarConfig = null;
 
   public get years(): number[] {
     const currentYear = this.selectedYear + 10;
@@ -35,16 +24,12 @@ export class YearCalendarComponent implements OnInit {
     return years;
   }
 
-  public calendarConfig: IConfig = {
-    clickDay: (day) => {},
-    rightClickDay: (day) => {},
-    mouseOver: (day) => {},
-    mouseEnter: (day) => {},
-    mouseLeave: (day) => {}
-  };
-  constructor() {}
+  constructor(private _yearCalendarService: YearCalendarService) {}
 
-  ngOnInit() {}
+  public ngOnInit() {
+    this.calendarConfig = this._yearCalendarService.configureCalendar();
+    this.months = this.calendarConfig.months;
+  }
 
   public prevYear() {}
 }

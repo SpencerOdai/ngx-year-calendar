@@ -1,14 +1,8 @@
 {
   "name": "ngx-year-calendar",
   "version": "0.0.1",
-  "scripts": {
-    "build-mylib": "ng build mylib && npm run build-mylib-styles && npm run cp-mylib-assets",
-    "build-mylib-styles": "cpx \"./projects/mylib/src/lib/style/**/*\" \"./dist/mylib/style\" && scss-bundle -e ./projects/mylib/src/lib/style/_style.scss -d ./dist/mylib/style/_styles.scss",
-    "cp-mylib-assets": "cpx \"./src/assets/**/*\" \"./dist/mylib/assets\""
-  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
-  },
-  "dependencies": {}
+  }
 }
