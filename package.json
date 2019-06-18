@@ -1,10 +1,14 @@
 {
   "name": "ngx-year-calendar",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "copy:readme": "copyfiles ./README.md ./dist/ngx-year-calendar",
+    "build": "npm run build:lib && npm run build:demo",
+    "build:lib": "npm run copy:readme && ng build ngx-year-calendar",
+    "build:showcase": "ng build ngx-year-calendar-showcase --base-href='https://SpencerOdai.github.io/ngx-year-calendar'",
+    "publish:demo": "npx angular-cli-ghpages --dir=./dist/ngx-year-calendar-showcase",
     "test": "ng test",
     "test:ngx-year-calendar": "ng test ngx-year-calendar",
     "test:ngx-year-calendar-coverage": "ng test ngx-year-calendar --code-coverage --watch=false",
@@ -15,7 +19,11 @@
     "format:write": "prettier --write 'projects/**/*.ts'",
     "format-package-json": "npm-run-all format-package-json:*",
     "format-package-json:ngx-year-calendar": "prettier --write 'projects/ngx-year-calendar/package.json'",
-    "format-package-json:main": "prettier --write 'package.json'"
+    "format-package-json:main": "prettier --write 'package.json'",
+    "adjust-version": "npm-run-all adjust-version:*",
+    "adjust-version:lib": "rjp projects/ngx-year-calendar/package.json version $VERSION",
+    "adjust-version:main": "rjp package.json version $VERSION",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "dependencies": {
@@ -37,10 +45,17 @@
     "@angular/cli": "~7.3.7",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/prompt": "^8.0.0",
+    "@semantic-release/exec": "^3.3.3",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codecov": "^3.5.0",
     "codelyzer": "~4.5.0",
+    "copyfiles": "^2.1.0",
+    "husky": "^2.4.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -48,9 +63,33 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
     "protractor": "~5.4.0",
+    "semantic-release": "^15.13.16",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "projects/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpencerOdai/ngx-year-calendar.git"
   }
 }
