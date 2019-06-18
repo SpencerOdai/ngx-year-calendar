@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalendarComponent } from './calendar.component';
+import { YearCalendarService } from '../../services/year-calendar.service';
 
 describe('CalendarComponent', () => {
   let component: CalendarComponent;
@@ -8,9 +9,9 @@ describe('CalendarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalendarComponent ]
-    })
-    .compileComponents();
+      declarations: [CalendarComponent],
+      providers: [YearCalendarService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

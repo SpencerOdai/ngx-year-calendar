@@ -81,7 +81,7 @@
             "tsConfig": "projects/ngx-year-calendar-showcase/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-year-calendar-showcase/karma.conf.js",
             "styles": [
-              "projects/ngx-year-calendar-showcase/src/styles.css"
+              "projects/ngx-year-calendar-showcase/src/styles.scss"
             ],
             "scripts": [],
             "assets": [

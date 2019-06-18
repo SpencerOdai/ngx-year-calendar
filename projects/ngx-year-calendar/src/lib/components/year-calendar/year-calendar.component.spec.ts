@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { YearCalendarComponent } from './year-calendar.component';
+import { YearCalendarService } from '../../services/year-calendar.service';
+import { Input, Component } from '@angular/core';
 
 describe('YearCalendarComponent', () => {
   let component: YearCalendarComponent;
@@ -8,7 +10,8 @@ describe('YearCalendarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [YearCalendarComponent]
+      declarations: [YearCalendarComponent, CalenderComponentStub],
+      providers: [YearCalendarService]
     }).compileComponents();
   }));
 
@@ -22,3 +25,12 @@ describe('YearCalendarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({
+  selector: 'ngx-calendar',
+  template: ''
+})
+class CalenderComponentStub {
+  @Input('month') public month: string[];
+  @Input('year') public year: string[];
+}
