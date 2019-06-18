@@ -7,7 +7,7 @@
     "copy:readme": "copyfiles ./README.md ./dist/ngx-year-calendar",
     "build": "npm run build:ngx-year-calendar && npm run build:showcase",
     "build:ngx-year-calendar": "npm run copy:readme && ng build ngx-year-calendar",
-    "build:showcase": "ng build ngx-year-calendar-showcase --base-href='https://SpencerOdai.github.io/ngx-year-calendar'",
+    "build:showcase": "ng build ngx-year-calendar-showcase --base-href='https://SpencerOdai.github.io/ngx-year-calendar/'",
     "test": "ng test",
     "test:ngx-year-calendar": "ng test ngx-year-calendar",
     "test:ngx-year-calendar-coverage": "ng test ngx-year-calendar --code-coverage --watch=false",
@@ -96,6 +96,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SpencerOdai/ngx-year-calendar.git"
+    "url": "https://github.com/SpencerOdai/ngx-year-calendar"
   }
 }
