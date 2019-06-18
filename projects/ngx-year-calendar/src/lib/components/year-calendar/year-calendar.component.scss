@@ -1,0 +1,79 @@
+@import "../../style/style.scss";
+
+.calendar {
+  overflow: hidden;
+
+  .years-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+
+    .arrow-left,
+    .arrow-right,
+    .years {
+      display: flex;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      padding: 10px 20px 10px 20px;
+      border: 1px solid map-get($colors, stable);
+      cursor: pointer;
+    }
+
+    .arrow-left {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+
+    .arrow-right {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .years {
+      display: flex;
+      flex: 1;
+
+      .year {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid map-get($colors, stable);
+        border-left: 0;
+
+        &:last-of-type {
+          border-right: 0;
+        }
+
+        &.current {
+          background: map-get($colors, secondary);
+          color: map-get($colors, light);
+        }
+      }
+    }
+  }
+
+  .months {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 10px;
+
+    .month {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-color: map-get($colors, primary);
+      color: map-get($colors, dark);
+      cursor: pointer;
+
+      h3 {
+        margin: 3px 0;
+        font-weight: 14px;
+        font-weight: 500;
+        color: map-get($colors, primary);
+      }
+    }
+  }
+}

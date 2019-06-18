@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+
+    <div class="calendar">
+      <div class="years-wrapper">
+        <div class="arrow-left" (click)="selectedYear = selectedYear - 1">
+          <img src="../../assets/icons/chevron-left.svg" alt="">
+        </div>
+        <div class="years">
+          <div class="year" (click)="selectedYear = selectedYear - 2">{{selectedYear - 2}}</div>
+          <div class="year" (click)="selectedYear = selectedYear - 1">{{selectedYear - 1}}</div>
+          <div class="year current">{{selectedYear}}</div>
+          <div class="year" (click)="selectedYear = selectedYear + 1">{{selectedYear + 1 }}</div>
+          <div class="year" (click)="selectedYear = selectedYear + 2">{{selectedYear + 2}}</div>
+        </div>
+        <div class="arrow-right" (click)="selectedYear = selectedYear + 1">
+          <img src="./assets/icons/chevron-right.svg" alt="">
+        </div>
+      </div>
+
+      <div class="months">
+        <div class="month" *ngFor="let month of months; let i = index">
+          <h3>{{month}}</h3>
+          <ngx-calendar #calendar [config]="calendarConfig" [month]="i" [year]="selectedYear"></ngx-calendar>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
