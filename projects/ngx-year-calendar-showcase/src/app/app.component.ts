@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YearCalendarService } from 'projects/ngx-year-calendar/src/lib/services/year-calendar.service';
-import { IDay } from 'ngx-year-calendar/lib/models';
+import { IDay } from 'projects/ngx-year-calendar/src/lib/models';
 
 @Component({
   selector: 'app-root',
