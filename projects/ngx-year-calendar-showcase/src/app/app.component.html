@@ -1,1 +1,54 @@
-<ngx-year-calendar></ngx-year-calendar>
+<div class="header">
+  <div class="title">ngx-year-calendar <span class="right"><a href="https://github.com/SpencerOdai/ngx-year-calendar">
+        <i class="fa fa-github"></i></a>
+      <i class="fab fa-node"></i></span>
+  </div>
+  <div class="content">
+    <div class="big-text">Lightweight Angular Year Calendar</div>
+    <div class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis nibh at risus posuere
+      tempus id quis arcu. Praesent non ex pulvinar, laoreet felis eget, aliquet purus. Nulla in imperdiet mi.
+    </div>
+  </div>
+</div>
+<div class="container-fluid mb-3">
+
+  <h2>Getting Started</h2>
+  <ul>
+    <li>
+      <p>install the package via npm and add module to your app.module.ts file</p>
+      <pre>npm install ngx-year-calendar --save</pre>
+      <img src="assets/docs/app-module.png" alt="" class="border">
+    </li>
+
+    <li>
+      <p>add component to html page</p>
+      <img src="assets/docs/component.png" alt="" class="border">
+    </li>
+  </ul>
+  <h2>Demo</h2>
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <div class="card">
+        <div class="card-header">Calendar</div>
+        <div class="card-body">
+          <ngx-year-calendar></ngx-year-calendar>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-12 col-md-4">
+      <div class="card">
+        <div class="card-header">User Action Events</div>
+        <div class="card-body logs">
+          <div class="form-check form-check-inline" *ngFor="let item of eventTypes">
+            <input class="form-check-input" type="checkbox" [id]="item" value="item" (click)="selectEvents(item)">
+            <label class="form-check-label" [for]="item">{{item}}</label>
+          </div>
+
+          <p *ngFor="let item of logs" [innerHTML]="item"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

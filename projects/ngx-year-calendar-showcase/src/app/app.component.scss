@@ -1,0 +1,41 @@
+:host {
+  .header {
+    height: 300px;
+    padding: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #A594F9;
+    color: white;
+
+    .title {
+      font-size: 26px;
+      font-weight: 400;
+
+      a {
+        color: white;
+      }
+    }
+
+    .big-text {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+  }
+
+  img {
+    width: 500px;
+  }
+
+  .logs {
+    height: 580px;
+    overflow-y: auto;
+
+    p {
+      font-size: 13px;
+      border: 1px solid rgba(gray, 0.2);
+      padding: 10px;
+    }
+  }
+}

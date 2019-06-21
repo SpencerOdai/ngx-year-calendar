@@ -27,7 +27,7 @@
               "projects/ngx-year-calendar-showcase/src/assets"
             ],
             "styles": [
-              "projects/ngx-year-calendar-showcase/src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
               "./node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [],
