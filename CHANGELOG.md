@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/SpencerOdai/ngx-year-calendar/compare/v1.0.0...v1.0.1) (2019-06-21)
+
+
+### Bug Fixes
+
+* **build:** showcase import statement fixed ([c5898a9](https://github.com/SpencerOdai/ngx-year-calendar/commit/c5898a9))
+* **npm audit:** fixed known vulnerabilities ([fd70551](https://github.com/SpencerOdai/ngx-year-calendar/commit/fd70551))
+
 # 1.0.0 (2019-06-19)
 
 
